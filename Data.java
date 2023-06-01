@@ -1,70 +1,60 @@
-// início classe Data
 
 public class Data {
-   
     private int dia;
     private int mes;
     private int ano;
- 
- // inicio construtor Data
- 
 
-    public Data ( int dia, int mes, int ano) {
-      validar (dia, mes, ano);
-      this.dia = dia;
-      this.mes = mes;
-      this.ano = ano;
-    
+//Construtor
+    public Data(int dia, int mes, int ano) {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+
+        validarData();
     }
 
+//inicio construtor
 
-  private void validar (int dia, int mes, int ano){
- 
-    if (ano < 0)  {
-      System.out.println("Ano deve ser positivo. Data padrão adicionada: 01/01/2000");
-      this.dia = 1;
-      this.mes = 1;
-      this.ano = 2000;
-    
+    private void validarData() {
+        boolean dataValida = true;
+
+        if (mes < 1 || mes > 12) {
+            dataValida = false;
+        } else if (dia < 1 || dia > diasNoMes()) {
+            dataValida = false;
+        }
+
+        if (!dataValida) {
+            System.out.println("Data inválida. Será atribuído o data padrão: 1/1/2000");
+            this.dia = 1;
+            this.mes = 1;
+            this.ano = 2000;
+        }
     }
-    if (mes < 1 || mes > 12) {
-      System.out.println( "Mês" + mes + "inválido. Data padrão adicionada: 01/01/2000") ;
-      this.dia = 1;
-      this.mes = 1;
-      this.ano = 2000;
+
+    private int diasNoMes() {
+        int diasNoMes = 0;
+
+        switch (mes) {
+            case 2:
+                diasNoMes = (verificaAnoBissexto()) ? 29 : 28;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                diasNoMes = 30;
+                break;
+            default:
+                diasNoMes = 31;
+        }
+
+        return diasNoMes;
     }
 
-
- // verifica o último dias do mês
-    
-    int ultimoDia;
-    switch (mes){ // mes com 30 dias
-        
-      case 4:
-      case 6:
-      case 9:
-      case 11:
-          ultimoDia = 30;
-          break ;
-
-      case 2: // Fevereiro
-          if ((ano % 4 == 0) && (ano % 100 != 0 || ano % 400 == 0)){ // verifica Bissexto 
-              ultimoDia  = 29;
-  
-          } else {
-              ultimoDia = 28;
-          }
-          break;
-      default: // outros meses
-        ultimoDia = 31;
-      }      
-      if ( dia < 1 || dia > ultimoDia ) {
-        System.out.println (" Dia deve ser entre 1 e " + ultimoDia + "Data padrão adicionada: 01/01/2000") ;
-        this.dia = 1;
-        this.mes = 1;
-        this.ano = 2000;
-      } 
-  } // Fim construtor 
+    public boolean verificaAnoBissexto() {
+        return ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0);
+    }// Fim construtor 
 
 
  
@@ -99,5 +89,12 @@ public class Data {
     public static Data getDataValidade() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return  dia + "/" + mes + "/" + ano;
+    }
+
+   
 
 }// Fim Classe

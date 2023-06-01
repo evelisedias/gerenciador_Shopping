@@ -42,18 +42,26 @@ public class Shopping {
     }
 //Fim dos getters and setters
 
+/*PARA TESTE
+    public void imprimeLojas(){
+        for (int i=0; i<lojas.length; i++)
+            System.out.println(lojas[i].getNome());
+        
+    }
+//FIM TESTE*/
+
 //Início método insere loja
 
     public boolean insereLoja (Loja loja){
-        for (int i=0; i<lojas.length; i++)
+        for (int i=0; i<lojas.length; i++){
             if(lojas[i] == null){
                 this.lojas[i] = loja;
-                System.out.println("Loja cadastrada com Sucesso!");
-                return true;
-            }else{
-              System.out.println("Erro: Não há espaço disponível para uma nova loja.");  
+                break;
+                
             }
-        return false;
+        }
+        
+            return false;
     }
 
 //Fim método insere loja
@@ -62,11 +70,10 @@ public class Shopping {
        for (int i = 0; i < lojas.length; i++) {
             if(lojas[i] != null && lojas[i].getNome().equalsIgnoreCase(nome)){
                 lojas[i] = null;
-                System.out.println("Loja removida com Sucesso!");
-                return true;
-            }else
-            System.out.println("Erro: Loja" + nome + "não encontrada.");
-       } 
+                System.out.println("Loja " + nome + " removida com Sucesso!");
+                break;
+            }
+       }
        return false;
     }
 
@@ -113,14 +120,18 @@ public class Shopping {
 
         return contador;
     }
+    @Override
+    public String toString() {
+        return "Shopping [nome=" + nome + ", endereco=" + endereco + ", lojas=" + Arrays.toString(lojas) + "]";
+    }
 //Fim Método Loja com seguro mais caro
 
 
 //Fim método remove loja
-    @Override
+   // @Override
 
-    public String toString() {
+    /*public String toString() {
         return "Shopping Center " + nome + "Localizado no endereço: " + endereco + ", lojas: " + Arrays.toString(lojas) + "]";
-    }
+    }*/
 
 }

@@ -93,7 +93,7 @@ public class ValidadorEtapa4 {
 		System.out.println("[OK] Método Data.toString()");
 		
 		//public boolean verificaAnoBissexto();
-		//System.out.println(d1.verificaAnoBissexto() ? "[OK] Método Dia.verificaAnoBissexto()" : "[NOK] Método Dia.verificaAnoBissexto()");
+		System.out.println(d1.verificaAnoBissexto() ? "[OK] Método Dia.verificaAnoBissexto()" : "[NOK] Método Dia.verificaAnoBissexto()");
 
 
 		//// Verificação da classe Produto
@@ -186,7 +186,7 @@ public class ValidadorEtapa4 {
 		//public void imprimeProdutos();
 		loja1.imprimeProdutos();
 		System.out.println("[OK] Método Loja.imprimeProdutos()");
-		System.out.println("-----Loja 2------");
+		
 		//public boolean insereProduto(Produto p);
 		boolean prod1 = loja2.insereProduto(new Produto("Pipoca doce", 5, new Data(10,5,2023)));
 		System.out.println(prod1 ? "[OK] Método Loja.insereProduto() - inclusão de um produto" : "[NOK] Método Loja.insereProduto() - não deixou incluir um produto");

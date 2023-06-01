@@ -1,5 +1,7 @@
 // início classe Loja
 
+import java.util.Arrays;
+
 public class Loja {
 // iniciando Scanner
 
@@ -138,7 +140,7 @@ public class Loja {
 //Início método imprimeProdutos
         public void imprimeProdutos(){
             for (int i=0; i<estoqueProdutos.length; i++)
-                System.out.println(estoqueProdutos.getClass().getSimpleName());
+                System.out.println(estoqueProdutos[i]);
             
         }
 // Fim método imprimeProdutos
@@ -148,20 +150,10 @@ public class Loja {
             for (int i=0; i<estoqueProdutos.length; i++){
                 if (estoqueProdutos[i] == null){
                     this.estoqueProdutos[i] = produto;
-                    
-                    //System.out.println("Produto incluído com sucesso!");  
-                          
-            
-                } else {
-                    System.out.println("Erro: Quantidade máxima excedida.");
-                    
+                    break;
+                                                  
                 }
-                
-                
-                
             }
-            
-
             return false;
         }
 //Fim método insere produto
@@ -170,27 +162,26 @@ public class Loja {
         public boolean removeProduto(String nome){
 
             for(int i=0; i<estoqueProdutos.length; i++){
-                
-                if(estoqueProdutos[i].getNome().equalsIgnoreCase(nome)){
+                if(estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equalsIgnoreCase(nome)){
                     estoqueProdutos[i] = null;
-                    System.out.println("Produto " + estoqueProdutos[i].getNome() + " removido com sucesso!");
+                    System.out.println("Produto " + nome + " removido com sucesso!");
                     return true;
-                }else if (estoqueProdutos == null){
-                    System.out.println("Produto " + nome + " não encontrado.");
-                 
-                } 
+                }
             }
             return false;
         }
+       
+       
 //Fim método remover produto
-        @Override
-            public String toString(){
-                return "Ração Social: " + getNome() + "Data de Constituição: " + getDataFundacao() + 
-                "Endereço: " + getEndereco()  +  "\nQuantidade de Empregados: " + getQuantidadeFuncionarios() + 
+       
+                @Override
+                public String toString(){
+                return "Ração Social: " + getNome() + "\nData de Constituição: " + getDataFundacao() + 
+                "\nEndereço: " + getEndereco()  +  "\nQuantidade de Empregados: " + getQuantidadeFuncionarios() + 
                 "\nSalário base dos Funcionários: " + getSalarioBaseFuncionario() + 
-                "\nQuantidade Máxima de Produtos em estoque: " + getEstoqueProdutos();
-            
+                "\nQuantidade Máxima de Produtos em estoque: " + Arrays.toString(estoqueProdutos);
 
         }
+            
 
 } // Fim clase
