@@ -2,9 +2,8 @@ public class teste {
     public static void main(String[] args) {
         Endereco e1 = new Endereco("Av. João wallig","Porto Alegre", "RS", "Brasil", "93218280", "54", "Shopping Iguatemi");
         Data d1 = new Data(22, 05, 2005);
-        Loja l1 = new Loja("Subway", 5, 1320.00,e1,d1,3);
+        Loja l1 = new Loja("loja Alimentação", 5, 1320.00,e1,d1,3);
         
-        System.out.println(l1);
         l1.imprimeProdutos();
         
         Produto p1 = new Produto("Água s/ gás", 6.00, new Data(25, 12, 2023));
@@ -13,13 +12,10 @@ public class teste {
         Produto p4 = new Produto("Coca", 8.00, new Data(25, 12, 2023));
         System.out.println("TESTE PRODUTOS");
         l1.insereProduto(p1);
-        l1.imprimeProdutos();
         System.out.println("Adicionando produto ");
         l1.insereProduto(p2);
-        l1.imprimeProdutos();
         System.out.println("Adicionando produto ");
         l1.insereProduto(p3);
-        l1.imprimeProdutos();
         System.out.println("Adicionando produto ");
         l1.insereProduto(p4);
         System.out.println("------ Lista de Produtos Adicionados --------");
@@ -39,19 +35,24 @@ public class teste {
         l1.imprimeProdutos();
         System.out.println("==========================");
 
-        System.out.println("TESTANDO CADASTRO DE SHOPPING");
-        Loja l2 = new Loja("Kalzone", 10, 1325.0, e1, d1, 2);
-        Loja l3 = new Loja("beefs", 10, 1325.0, e1, d1, 2);
+        System.out.println("--------------- TESTANDO CADASTRO DE SHOPPING -----------------");
+        Loja l2 = new Loja("loja informatica", 10, 1325.0, e1, d1, 2);
+        Loja l3 = new Loja("loja bijuteria", 10, 1325.0, e1, d1, 2);
         Shopping s1 = new Shopping("Iguatemi", e1, 3);
-        System.out.println("INSERINDO LOJAS");
+        System.out.println("--------------- INSERINDO LOJAS ---------------");
         s1.insereLoja(l1);
-      
+        s1.insereLoja(l2);
         s1.insereLoja(l3);
-        System.out.println("IMPRIMINDO LOJAS");
-        //s1.imprimeLojas();
-        System.out.println("REMOVENDO LOJAS");
+        System.out.println("---------------IMPRIMINDO LOJAS---------------");
+        s1.imprimeLojas();
+        System.out.println("---------------REMOVENDO LOJAS---------------");
         s1.removeLoja("subway");
-        
+        s1.imprimeLojas();
+
+        System.out.println("--------------------- TESTANDO TIPO DE LOJA ------------------------");
+        int total = s1.quantidadeLojasPorTipo("informatica");
+        System.out.println(total == 1 ? "[OK] Método Shopping.quantidadeLojasPorTipo() - localizou uma loja" : "[NOK] Método Shopping.quantidadeLojasPorTipo() - não conseguiu localizar uma loja");
+
         
 
     }

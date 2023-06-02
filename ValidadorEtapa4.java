@@ -311,12 +311,11 @@ public class ValidadorEtapa4 {
 		//public boolean insereLoja(Loja loja)
 		boolean criaLoja1 = shopping.insereLoja(lojaInformatica);
 		System.out.println(criaLoja1 ? "[OK] Método Shopping.insereLoja() - inclusão de uma loja" : "[NOK] Método Shopping.insereLoja() - não deixou inserir a primeira loja");
-
 		System.out.println(shopping.getLojas()[1] == null ? "[OK] Método Shopping.insereLoja() - restante do array permanece vazio" : "[NOK] Método Shopping.insereLoja() - ao incluir uma loja, mexeu nas demais posições do array");
 		
 		boolean criaLoja2 = shopping.insereLoja(lojaBijuteria);
 		System.out.println((criaLoja1 && criaLoja2) ? "[OK] Método Shopping.insereLoja() - inclusão de duas lojas" : "[NOK] Método Shopping.insereLoja() - não deixou incluir duas lojas");
-		
+
 		boolean criaLoja3 = shopping.insereLoja(lojaCosmetico);
 		System.out.println(!criaLoja3 ? "[OK] Método Shopping.insereLoja() - não permitiu inclusão de item quando array cheio" : "[NOK] Método Shopping.insereLoja() - permitiu inclusão de item quando array cheio");
 

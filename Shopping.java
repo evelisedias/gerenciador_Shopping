@@ -42,42 +42,35 @@ public class Shopping {
     }
 //Fim dos getters and setters
 
-/*PARA TESTE
-    public void imprimeLojas(){
-        for (int i=0; i<lojas.length; i++)
-            System.out.println(lojas[i].getNome());
-        
-    }
-//FIM TESTE*/
-
 //Início método insere loja
 
     public boolean insereLoja (Loja loja){
         for (int i=0; i<lojas.length; i++){
             if(lojas[i] == null){
                 this.lojas[i] = loja;
-                break;
-                
+                System.out.println("Loja " + loja.getNome() + " inserida com sucesso!" );
+                return true;               
             }
         }
-        
-            return false;
+        return false;
     }
 
 //Fim método insere loja
+
+//Início método remove loja
 
     public boolean removeLoja(String nome){
        for (int i = 0; i < lojas.length; i++) {
             if(lojas[i] != null && lojas[i].getNome().equalsIgnoreCase(nome)){
                 lojas[i] = null;
                 System.out.println("Loja " + nome + " removida com Sucesso!");
-                break;
+                return true;
             }
        }
        return false;
     }
 
-//Início método remove loja
+//Fim método remove loja
 
 //Inicio método quantidade de lojas por tipo
 
@@ -85,9 +78,10 @@ public class Shopping {
         
         int quant = 0;
 
-        for (Loja loja : this.lojas){
-            if (tipo.equals(loja.getClass().getSimpleName())){
+        for (int i=0; i<lojas.length; i++){
+            if (lojas[i].getNome().contains(tipo)){
                 quant ++;
+                System.out.println("Loja" + tipo + "encontrada");
             }
         }
         if (quant == 0) {

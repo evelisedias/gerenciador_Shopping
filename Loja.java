@@ -121,65 +121,66 @@ public class Loja {
 // Fim método gasto com Salário
 
 // início Método Tamanho loja
-        public char tamanhoDaLoja(){
-            if (quantidadeFuncionarios < 10){
-               return 'P';
+    public char tamanhoDaLoja(){
+        if (quantidadeFuncionarios < 10){
+            return 'P';
 
-            } else if ((quantidadeFuncionarios == 10) || (quantidadeFuncionarios <= 30)){
+        } else if ((quantidadeFuncionarios == 10) || (quantidadeFuncionarios <= 30)){
 
-                return 'M';
+            return 'M';
 
-            } else {
+        } else {
     
-                return 'G';
-            }
-
+            return 'G';
         }
+
+    }
 // Fim Método Tamanho Loja
 
 //Início método imprimeProdutos
-        public void imprimeProdutos(){
-            for (int i=0; i<estoqueProdutos.length; i++)
-                System.out.println(estoqueProdutos[i]);
-            
-        }
+    public void imprimeProdutos(){
+        for (int i=0; i<estoqueProdutos.length; i++)
+            System.out.println(estoqueProdutos[i]);
+          
+    }
 // Fim método imprimeProdutos
 
 //Método insire produto
-        public boolean insereProduto(Produto produto){
-            for (int i=0; i<estoqueProdutos.length; i++){
-                if (estoqueProdutos[i] == null){
-                    this.estoqueProdutos[i] = produto;
-                    break;
-                                                  
-                }
-            }
-            return false;
+    public boolean insereProduto(Produto produto){
+        for (int i=0; i<estoqueProdutos.length; i++){
+           if (estoqueProdutos[i] == null){
+                this.estoqueProdutos[i] = produto;
+                System.out.println("Produto " + produto + "encontrado com sucesso!");
+                return true;
+
+           }
+
         }
+        return false;
+    }
 //Fim método insere produto
 
 //Método remover produto
-        public boolean removeProduto(String nome){
-
-            for(int i=0; i<estoqueProdutos.length; i++){
-                if(estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equalsIgnoreCase(nome)){
-                    estoqueProdutos[i] = null;
-                    System.out.println("Produto " + nome + " removido com sucesso!");
-                    return true;
-                }
+    public boolean removeProduto(String nome){
+        for(int i=0; i<estoqueProdutos.length; i++){
+            if(estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equalsIgnoreCase(nome)){
+                estoqueProdutos[i] = null;
+                System.out.println("Produto " + nome + " removido com sucesso!");
+                return true;
             }
-            return false;
         }
+        return false;
+    }
        
        
 //Fim método remover produto
        
-                @Override
-                public String toString(){
-                return "Ração Social: " + getNome() + "\nData de Constituição: " + getDataFundacao() + 
-                "\nEndereço: " + getEndereco()  +  "\nQuantidade de Empregados: " + getQuantidadeFuncionarios() + 
-                "\nSalário base dos Funcionários: " + getSalarioBaseFuncionario() + 
-                "\nQuantidade Máxima de Produtos em estoque: " + Arrays.toString(estoqueProdutos);
+    @Override
+        public String toString(){
+            return "Ração Social: " + getNome() + "\nData de Constituição: " + getDataFundacao() + 
+            "\nEndereço: " + getEndereco()  +  "\nQuantidade de Empregados: " + getQuantidadeFuncionarios() + 
+            "\nSalário base dos Funcionários: " + getSalarioBaseFuncionario() + 
+            "\nQuantidade Máxima de Produtos em estoque: " + Arrays.toString(estoqueProdutos);
 
         }
             
