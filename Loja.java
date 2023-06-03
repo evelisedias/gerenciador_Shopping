@@ -139,10 +139,12 @@ public class Loja {
 
 //Início método imprimeProdutos
     public void imprimeProdutos(){
+        System.out.println("=========== Produtos em Estoque ===========");
         for (int i=0; i<estoqueProdutos.length; i++)
             System.out.println(estoqueProdutos[i]);
-          
+            System.out.println("===========================================");
     }
+
 // Fim método imprimeProdutos
 
 //Método insire produto
