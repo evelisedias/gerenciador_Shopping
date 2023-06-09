@@ -16,6 +16,12 @@ public class Produto {
     
         
     }// Fim construtor
+
+    //Construtor 2
+        public Produto(){
+            
+        }
+    //Fim construtor 2
     
     // Início getters and setters
     
@@ -74,9 +80,15 @@ public class Produto {
         }else if (dataValidade.getAno() == dataAtual.getAno() && dataValidade.getMes() < dataAtual.getMes()) {
             System.out.println("PRODUTO VENCIDO");
             return true;
-        }else if (dataValidade.getAno() == dataAtual.getAno() == dataValidade.getMes() < dataAtual.getMes() && dataValidade.getDia() < dataAtual.getDia()){
+
+        }else if (dataValidade.getAno() == dataAtual.getAno() && dataValidade.getMes() == dataAtual.getMes() && dataValidade.getDia() < dataAtual.getDia()){
             System.out.println("PRODUTO VENCIDO");
             return true;
+
+        }else if (dataValidade.getAno() == dataAtual.getAno() && dataValidade.getMes() == dataAtual.getMes() && dataValidade.getDia() == dataAtual.getDia()){
+            System.out.println("PRODUTO VENCIDO");
+            return true;
+        
         }else {
             System.out.println("PRODUTO NÃO VENCIDO");
             return false;

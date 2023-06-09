@@ -41,6 +41,11 @@ public class Loja {
       this.estoqueProdutos = new Produto[quantMaxProdutos];
     }
 // Fim construtor 2
+//Contrutor 3
+    public Loja(){
+        
+    }
+//Fim construtor 3
 
 
 // início getters and setters
